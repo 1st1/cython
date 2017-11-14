@@ -1274,6 +1274,13 @@ __Pyx_Coroutine_get_qualname(__pyx_CoroutineObject *self)
     return name;
 }
 
+static PyObject *
+__Pyx_Coroutine_get_cr_frame(__pyx_CoroutineObject *self)
+{
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
 static int
 __Pyx_Coroutine_set_qualname(__pyx_CoroutineObject *self, PyObject *value)
 {
@@ -1506,6 +1513,7 @@ static PyGetSetDef __pyx_Coroutine_getsets[] = {
      (char*) PyDoc_STR("name of the coroutine"), 0},
     {(char *) "__qualname__", (getter)__Pyx_Coroutine_get_qualname, (setter)__Pyx_Coroutine_set_qualname,
      (char*) PyDoc_STR("qualified name of the coroutine"), 0},
+    {(char *) "cr_frame", (getter)__Pyx_Coroutine_get_cr_frame, 0, 0, 0},
     {0, 0, 0, 0, 0}
 };
 
